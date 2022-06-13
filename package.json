@@ -1,0 +1,32 @@
+{
+  "name": "token-invalidator-bot",
+  "version": "1.0.0",
+  "description": "A HTTP interactions Discord bot to easily invalidate tokens",
+  "main": "dist/index.js",
+  "type": "module",
+  "author": "Sammy#1001",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "build": "tsc",
+    "dev": "tsc && wrangler dev dist/index.js",
+    "ngrok": "tsc && ngrok http 8787",
+    "ngrokl": "ngrok http 3000",
+    "register": "tsc && node dist/register.js",
+    "unregister": "tsc && node dist/unregister.js",
+    "publish": "tsc && wrangler publish"
+  },
+  "dependencies": {
+    "discord-api-types": "^0.33.5",
+    "dishttp": "^2.0.0-alpha.35"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "dotenv": "^16.0.1",
+    "ngrok": "^4.3.1",
+    "node-fetch": "^3.2.6",
+    "typescript": "^4.7.3",
+    "wrangler": "^2.0.9"
+  }
+}
