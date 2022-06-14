@@ -13,7 +13,7 @@ export const stats = new ChatCommand({
         }]
     },
     executor: async (message) => {
-        const id = (message.data.options!.find(o => o.name === 'user') as APIApplicationCommandInteractionDataStringOption)?.value || (message.user ? message.user.id : message.member!.user.id);
+        const id = (message.data.options?.find(o => o.name === 'user') as APIApplicationCommandInteractionDataStringOption)?.value || (message.user ? message.user.id : message.member!.user.id);
 
         const response = await fetch(`https://token-invalidator.vercel.app/api/tokens/user/${id}`);
 
