@@ -9,11 +9,11 @@ export const stats = new ChatCommand({
             type: ApplicationCommandOptionType.User,
             name: 'user',
             description: 'The user/id to check stats for',
-            required: true,
+            required: false,
         }]
     },
     executor: async (message) => {
-        const id = (message.data.options!.find(o => o.name === 'user') as APIApplicationCommandInteractionDataStringOption).value;
+        const id = (message.data.options!.find(o => o.name === 'user') as APIApplicationCommandInteractionDataStringOption)?.value || (message.user ? message.user.id : message.member!.user.id);
 
         const response = await fetch(`https://token-invalidator.vercel.app/api/tokens/user/${id}`);
 
@@ -39,6 +39,7 @@ export const stats = new ChatCommand({
 
         const embed = new Embed()
             .setTitle(`${json.length} submitted token(s)`)
+            .setDescription(`View their [submission history](https://invalidate.vercel.app/history/user/${id})`)
             .setColor(0x5865F2);
 
         return new MessageResponse({embeds: [embed]});

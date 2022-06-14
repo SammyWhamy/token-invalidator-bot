@@ -8,6 +8,7 @@ export const ping = new ChatCommand({
     executor: async () => {
         const embed = new Embed()
             .setTitle("Pong!")
+            .setDescription("View our [website](https://invalidate.vercel.app) too!")
             .setColor(0x5865F2)
 
         return new MessageResponse({embeds: [embed]});

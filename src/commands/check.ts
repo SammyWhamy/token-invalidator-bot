@@ -4,7 +4,7 @@ import {ChatCommand, Embed, MessageResponse} from "dishttp";
 export const check = new ChatCommand({
     data: {
         name: "check",
-        description: "Check if an ID has any register leaked tokens",
+        description: "Check if an ID has any registered leaked tokens",
         options: [{
             type: ApplicationCommandOptionType.User,
             name: 'user',
