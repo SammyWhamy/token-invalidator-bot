@@ -21,7 +21,7 @@ export const invalidate = new ChatCommand({
         const token = (message.data.options!.find(o => o.name === 'token') as APIApplicationCommandInteractionDataStringOption).value;
         const link = (message.data.options!.find(o => o.name === 'link') as APIApplicationCommandInteractionDataStringOption)?.value;
 
-        const response = await fetch(`https://token-invalidator.vercel.app/api/tokens/submit`, {
+        const response = await fetch(`https://invalidate.vercel.app/api/tokens/submit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

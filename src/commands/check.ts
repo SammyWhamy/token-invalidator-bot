@@ -15,7 +15,7 @@ export const check = new ChatCommand({
     executor: async (message) => {
         const id = (message.data.options!.find(o => o.name === 'user') as APIApplicationCommandInteractionDataStringOption).value;
 
-        const response = await fetch(`https://token-invalidator.vercel.app/api/tokens/${id}`);
+        const response = await fetch(`https://invalidate.vercel.app/api/tokens/${id}`);
 
         if(response.status !== 200) {
             const embed = new Embed()
